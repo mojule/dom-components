@@ -82,3 +82,11 @@ const toDom = DomComponents( document, templates )
 document.body.appendChild( toDom( componentNode ) )
 document.body.appendChild( toDom( json ) )
 ```
+
+```html
+<div class="box" name="foo">
+  <div class="box" name="bar">
+    <p class="baz">Hello World</p>
+  </div>
+</div>
+```
