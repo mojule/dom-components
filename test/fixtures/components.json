@@ -1,0 +1,11 @@
+[ "documentFragment",
+  [ "comment", "hello" ],
+  [ "Box", { "name": "foo" },
+    [ "Box", { "name": "bar" },
+      [ "p", { "class": "baz" },
+        "Hello World"
+      ]
+    ]
+  ],
+  [ "custom-el", "Hello World" ]
+]
