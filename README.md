@@ -37,8 +37,8 @@ the name will be converted to PascalCase, eg `m-foo-bar` refers to a template
 called `FooBar`
 
 Attributes on `m-` elements will become properties on a model passed to the
-template function and have their names converted from kebab-case to `camelCase`,
-eg `<m-foo bar-baz="qux">` will call provided function Foo with the model
+template function and have their names converted from kebab-case to camelCase,
+eg `<m-foo bar-baz="qux">` will call provided template `Foo` with the model
 `{ "barBaz": "qux" }`
 
 For complex models, embed the JSON for the model directly inside an immediate
@@ -49,18 +49,14 @@ The JSON syntax is `[ name[, model ], ...children ]`, where name is a template
 or tag name, model is the template model or attribute map for the DOM element,
 and children is 0 or more nodes in the same format
 
-Text nodes can just be strings
+Text nodes are just strings
 
-Some special nodes are also supported:
+Some special JSON nodes are also supported:
 
 ```javascript
-[ "document",
-  //...
-]
-[ "doctype" ], // always HTML5 doctype, no ability to customize
-[ "comment", "foo" ],
 [ "documentFragment",
-  //...
+  [ "comment", "foo" ],
+  "text node is just a string"
 ]
 ```
 
