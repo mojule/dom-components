@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const is = require("@mojule/is");
 const H = require("@mojule/h");
+const predicates = require("@mojule/dom-node-predicates");
 const is_node_tuple_1 = require("./is-node-tuple");
 exports.ComponentTreeToDom = (document, templates) => {
     const h = H(document);
@@ -25,7 +26,13 @@ exports.ComponentTreeToDom = (document, templates) => {
             return comment(args[0]);
         }
         else if (name in h) {
-            return h[name](...args.map(handleArg));
+            const mappedArgs = args.map(handleArg);
+            if (name === 'documentFragment') {
+                const doc = mappedArgs.find(predicates.document);
+                if (doc)
+                    return doc;
+            }
+            return h[name](...mappedArgs);
         }
         return element(name, ...args.map(handleArg));
     };

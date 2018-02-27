@@ -31,7 +31,15 @@ export const ComponentTreeToDom = ( document: Document, templates: ITemplateMap 
     if( name === 'comment' ){
       return comment( args[ 0 ] )
     } else if( name in h ){
-      return h[ name ]( ...args.map( handleArg ) )
+      const mappedArgs = args.map( handleArg )
+
+      if( name === 'documentFragment' ){
+        const doc = mappedArgs.find( predicates.document )
+
+        if( doc ) return doc
+      }
+
+      return h[ name ]( ...mappedArgs )
     }
 
     return element( name, ...args.map( handleArg ) )
