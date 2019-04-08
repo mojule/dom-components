@@ -1,10 +1,9 @@
-import * as is from '@mojule/is'
+import { is } from '@mojule/is'
 import * as H from '@mojule/h'
-import * as predicates from '@mojule/dom-node-predicates'
-import { ITemplateMap } from './types'
+import { TemplateMap } from './types'
 import { isNodeTuple } from './is-node-tuple'
 
-export const ComponentTreeToDom = ( document: Document, templates: ITemplateMap ) => {
+export const ComponentTreeToDom = ( document: Document, templates: TemplateMap ) => {
   const h = H( document )
   const { textNode, element, comment } = h
 
@@ -31,15 +30,7 @@ export const ComponentTreeToDom = ( document: Document, templates: ITemplateMap 
     if( name === 'comment' ){
       return comment( args[ 0 ] )
     } else if( name in h ){
-      const mappedArgs = args.map( handleArg )
-
-      if( name === 'documentFragment' ){
-        const doc = mappedArgs.find( predicates.document )
-
-        if( doc ) return doc
-      }
-
-      return h[ name ]( ...mappedArgs )
+      return h[ name ]( ...args.map( handleArg ) )
     }
 
     return element( name, ...args.map( handleArg ) )

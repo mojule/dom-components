@@ -1,2 +1,2 @@
-import { ITemplateMap } from './types';
-export declare const ComponentTreeToDom: (document: Document, templates: ITemplateMap) => (json: any) => Node;
+import { TemplateMap } from './types';
+export declare const ComponentTreeToDom: (document: Document, templates: TemplateMap) => (json: any) => Node;

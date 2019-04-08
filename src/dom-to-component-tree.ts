@@ -1,6 +1,5 @@
 import * as predicates from '@mojule/dom-node-predicates'
 import * as Mapper from '@mojule/mapper'
-import * as is from '@mojule/is'
 import * as upperFirst from 'lodash.upperfirst'
 import * as camelCase from 'lodash.camelcase'
 

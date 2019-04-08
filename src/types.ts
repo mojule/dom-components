@@ -1,9 +1,9 @@
-export type TSnippetTemplate = () => Node
-export type TComponentTemplate = ( model: any, ...childNodes: Node[] ) => Node
-export type TParentTemplate = ( ...childNodes: Node[] ) => Node
+export type SnippetTemplate = () => Node
+export type ComponentTemplate = ( model: any, ...childNodes: Node[] ) => Node
+export type ParentTemplate = ( ...childNodes: Node[] ) => Node
 
-export type TTemplate = TSnippetTemplate | TComponentTemplate | TParentTemplate
+export type Template = SnippetTemplate | ComponentTemplate | ParentTemplate
 
-export interface ITemplateMap {
-  [ name: string ]: TTemplate
+export interface TemplateMap {
+  [ name: string ]: Template
 }

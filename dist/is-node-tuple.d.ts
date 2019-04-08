@@ -1,1 +1,1 @@
-export declare const isNodeTuple: (value: any) => any;
+export declare const isNodeTuple: (value: any) => boolean;

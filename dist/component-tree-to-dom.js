@@ -1,17 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const is = require("@mojule/is");
+const is_1 = require("@mojule/is");
 const H = require("@mojule/h");
-const predicates = require("@mojule/dom-node-predicates");
 const is_node_tuple_1 = require("./is-node-tuple");
 exports.ComponentTreeToDom = (document, templates) => {
     const h = H(document);
     const { textNode, element, comment } = h;
-    const handleArg = arg => is_node_tuple_1.isNodeTuple(arg) || is.string(arg) ?
+    const handleArg = arg => is_node_tuple_1.isNodeTuple(arg) || is_1.is.string(arg) ?
         jsonToDom(arg) :
         arg;
     const jsonToDom = (json) => {
-        if (is.string(json))
+        if (is_1.is.string(json))
             return textNode(json);
         if (!is_node_tuple_1.isNodeTuple(json))
             throw Error('Expected string or node tuple');
@@ -26,13 +25,7 @@ exports.ComponentTreeToDom = (document, templates) => {
             return comment(args[0]);
         }
         else if (name in h) {
-            const mappedArgs = args.map(handleArg);
-            if (name === 'documentFragment') {
-                const doc = mappedArgs.find(predicates.document);
-                if (doc)
-                    return doc;
-            }
-            return h[name](...mappedArgs);
+            return h[name](...args.map(handleArg));
         }
         return element(name, ...args.map(handleArg));
     };
