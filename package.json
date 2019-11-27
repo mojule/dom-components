@@ -1,6 +1,6 @@
 {
   "name": "@mojule/dom-components",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A way to turn nested components backed by your own templates into DOM nodes",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -32,7 +32,7 @@
     "@mojule/document": "^0.2.1",
     "@mojule/dom-node-to-html-string": "^0.1.2",
     "@types/node": "^11.13.2",
-    "mocha": "^6.1.2",
-    "nyc": "^13.3.0"
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
   }
 }
