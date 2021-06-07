@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ComponentTreeToDom = void 0;
 const is_1 = require("@mojule/is");
 const H = require("@mojule/h");
 const is_node_tuple_1 = require("./is-node-tuple");
-exports.ComponentTreeToDom = (document, templates) => {
+const ComponentTreeToDom = (document, templates) => {
     const h = H(document);
     const { textNode, element, comment } = h;
     const handleArg = arg => is_node_tuple_1.isNodeTuple(arg) || is_1.is.string(arg) ?
@@ -31,4 +32,5 @@ exports.ComponentTreeToDom = (document, templates) => {
     };
     return jsonToDom;
 };
+exports.ComponentTreeToDom = ComponentTreeToDom;
 //# sourceMappingURL=component-tree-to-dom.js.map

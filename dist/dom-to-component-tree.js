@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.domToComponentTree = void 0;
 const predicates = require("@mojule/dom-node-predicates");
 const Mapper = require("@mojule/mapper");
 const upperFirst = require("lodash.upperfirst");

@@ -1,6 +1,6 @@
 {
   "name": "@mojule/dom-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A way to turn nested components backed by your own templates into DOM nodes",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
